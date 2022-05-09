@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 export const POSTS_SUBSCRIPTION = gql`
-  subscription posts {
-    posts {
+  subscription post {
+    posts(order_by: {id: desc}) {
       id
       title
       short_description
