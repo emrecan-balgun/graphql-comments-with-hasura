@@ -20,7 +20,7 @@ function NewCommentForm({ post_id }) {
       formRef.current.resetFields();
     } catch (e) {
       console.log(e);
-      message.error("Comment not saved!", 10);
+      message.error("Comment not added!", 10);
     }
   };
 

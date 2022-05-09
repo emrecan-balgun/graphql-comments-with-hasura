@@ -3,17 +3,17 @@ import { gql } from "@apollo/client";
 export const GET_USERS = gql`
   query getAllUsers {
     users {
-      _id
+      id
       fullName
     }
   }
 `;
 
 export const NEW_POST_MUTATION = gql`
-  mutation addNewPost($data: createPostInput!) {
-    createPost(data: $data) {
-      _id
-      title
-    }
+  mutation createPost($data: posts_insert_input!){
+  insert_posts_one(object: $data){
+    id
+    title
   }
+}
 `;
