@@ -17,3 +17,19 @@ export const CREATE_COMMENT_MUTATION = gql`
   }
 `;
 
+export const COMMENTS_SUBSCRIPTION = gql`
+  subscription getComments($post_id: Int!) {
+    comments(where: {
+      post_id: {
+        _eq: $post_id
+      }
+      }){
+        id
+        text
+        user{
+            fullName
+            profile_photo
+        }
+    }
+}
+`;
