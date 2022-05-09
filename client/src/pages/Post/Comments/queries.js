@@ -3,18 +3,19 @@ import { gql } from "@apollo/client";
 export const GET_USERS = gql`
   query getAllUsers {
     users {
-      _id
+      id
       fullName
     }
   }
 `;
 
 export const CREATE_COMMENT_MUTATION = gql`
-    mutation addNewComment($data: createCommentInput!) {
-        createComment(data: $data) {
-        _id
-    }
+    mutation createComment($input: comments_insert_input!){
+  insert_comments_one(object: $input){
+      id
+      text
   }
+}
 `;
 
 export const COMMENTS_SUBSCRIPTION = gql`
